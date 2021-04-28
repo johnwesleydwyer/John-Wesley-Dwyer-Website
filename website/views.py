@@ -19,6 +19,13 @@ def index(request):
             [apps_email],
         )
 
+        send_mail(
+            "John Wesley Dwyer",
+            "Thank you for your message! I will respond as quickly as possible!",
+            apps_email,
+            inputEmail,
+        )
+
         return render(request, 'index.html', {'inputName': inputName})
 
     else:
