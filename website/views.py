@@ -23,7 +23,7 @@ def index(request):
             "John Wesley Dwyer",
             "Thank you for your message! I will respond as quickly as possible!",
             apps_email,
-            inputEmail,
+            [inputEmail],
         )
 
         return render(request, 'index.html', {'inputName': inputName})
