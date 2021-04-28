@@ -88,8 +88,8 @@
                                     <p class="mb-0 text-white-50">Automate your work-flow by pulling data from an API automatically. I can provide you a custom built application
                                         specifically made for you! Even better, we can schedule it for a hands-free work process!</p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
-                                    <br/>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>
+<!--                                    <br/>-->
+<!--                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>-->
                                 </div>
                             </div>
                         </div>
@@ -107,8 +107,8 @@
                                         quickly and effeciently send a custom email to whoever you would like!
                                     </p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
-                                    <br/>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>
+<!--                                    <br/>-->
+<!--                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>-->
                                 </div>
                             </div>
                         </div>
@@ -127,8 +127,8 @@
                                         imports and a plethora of report formats including Excel, CSV, PDF, and email generation.
                                     </p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
-                                    <br/>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>
+<!--                                    <br/>-->
+<!--                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>-->
                                 </div>
                             </div>
                         </div>
@@ -147,8 +147,8 @@
                                         all Microsoft programs.
                                     </p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
-                                    <br/>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>
+<!--                                    <br/>-->
+<!--                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>-->
                                 </div>
                             </div>
                         </div>
@@ -165,8 +165,8 @@
                                     <p class="mb-0 text-white-50">You have big data you need analyzed? I can set up a multi-processing algorithm to analyze data
                                         quickly and efficiently. </p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
-                                    <br/>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>
+<!--                                    <br/>-->
+<!--                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>-->
                                 </div>
                             </div>
                         </div>
@@ -184,8 +184,8 @@
                                         BeautifulSoup, Selenium, and Scrapy should make short work of your project!
                                     </p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
-                                    <br/>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>
+<!--                                    <br/>-->
+<!--                                    <a class="btn btn-primary js-scroll-trigger" href="#about">See More!</a>-->
                                 </div>
                             </div>
                         </div>
@@ -195,31 +195,45 @@
         </section>
         <!-- Signup-->
         <section class="contact-section" id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <h2 class="text-white mb-5">Get in Touch!</h2>
-                        <form>
-                            <div>
-                                <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputName" type="text" placeholder="Enter name..." />
-                            </div>
-                            <br/>
-                            <div>
-                                <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                            </div>
-                            <br/>
-                            <div>
-                                <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputMessage" type="email" rows="5" placeholder="Enter message..." />
-                            </div>
-                            <br/>
-                            <div>
-                                <button class="btn btn-primary mx-auto" type="submit">Contact Me</button>
-                            </div>
-                            <br/>
-                        </form>
+            {% if inputName %}
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 class="text-white mb-4">Thanks {{ inputName }}!</h2>
+                            <p class="text-white-50">
+                                I have received your message and will contact you as quickly as possible!
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-lg-8 mx-auto text-center">
+                            <h2 class="text-white mb-5">Get in Touch!</h2>
+                            <form action="#contact" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputName" name="inputName" type="text" placeholder="Enter name..." />
+                                </div>
+                                <br/>
+                                <div>
+                                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" name="inputEmail" type="email" placeholder="Enter email address..." />
+                                </div>
+                                <br/>
+                                <div>
+                                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputMessage" name="inputMessage" rows="5" placeholder="Enter message..." />
+                                </div>
+                                <br/>
+                                <div>
+                                    <button class="btn btn-primary mx-auto" type="submit">Contact Me</button>
+                                </div>
+                                <br/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </section>
         <!-- Contact-->
 <!--        <section class="contact-section bg-black">-->

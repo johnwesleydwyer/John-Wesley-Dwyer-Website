@@ -16,6 +16,10 @@ import django_heroku
 import dj_database_url
 from decouple import config
 
+
+apps_email = os.environ.get("APPS_EMAIL")
+apps_pass = os.environ.get("APPS_PASSWORD")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -131,4 +135,14 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = apps_email
+EMAIL_HOST_PASSWORD = apps_pass
+EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+
 django_heroku.settings(locals())
+
+
