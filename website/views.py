@@ -13,7 +13,7 @@ def index(request):
         inputMessage = request.POST['inputMessage']
 
         send_mail(
-            inputName,
+            inputName + " | Website Request",
             inputMessage,
             inputEmail,
             [apps_email],
